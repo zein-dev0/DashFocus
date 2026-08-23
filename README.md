@@ -6,9 +6,9 @@
 Help Students to Achieve More...
 
 ## ✨ Features
-- 📝 Feature 1
-- 📊 Feature 2
-- 🎯 Feature 3
+- 📝 Pomodoro Timer
+- 📊 Daily Task List & Long-Term Goals Tracker
+- 🎯 Weekly Schedule Planner & Exam Countdown 
 
 ## ️ Technologies Used
 - HTML5
