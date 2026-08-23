@@ -20,13 +20,14 @@ Help Students to Achieve More...
 2. Open index.html in your browser
 
 ## 📸 Screenshots
-![Screenshot](assets/screenshot1.png)
+![DashFocus Screenshot](assets/images/screenshot1.png)
 
-## 🤝 Contributing
-Contributions are welcome!
+## 📬 Contact
 
-## 📄 License
-Distributed under the MIT License.
+**Zein Barbar**
 
-##  Contact
-Zein Barbar - [@zein-dev0](https://github.com/zein-dev0)
+- GitHub: [@zein-dev0](https://github.com/zein-dev0)
+- Email: zeinbarbar0@gmail.com (استبدله بإيميلك)
+- LinkedIn: [Your Profile](https://linkedin.com/in/your-profile) (إذا لديك)
+
+**Project Link:** [DashFocus](https://github.com/zein-dev0/DashFocus)
