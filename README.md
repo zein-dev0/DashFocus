@@ -31,7 +31,7 @@ Help Students to Achieve More...
 **Zein Barbar**
 
 - GitHub: [@zein-dev0](https://github.com/zein-dev0)
-- Email: zeinbarbar0@gmail.com (استبدله بإيميلك)
-- LinkedIn: [Your Profile](https://linkedin.com/in/your-profile) (إذا لديك)
+- Email: zeinbarbar0@gmail.com
+- LinkedIn: [Your Profile](https://linkedin.com/in/your-profile)
 
 **Project Link:** [DashFocus](https://github.com/zein-dev0/DashFocus)
