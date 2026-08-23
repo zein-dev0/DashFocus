@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashFocus | عداد المواعيد الدراسية</title>
+    <link rel="shortcut icon" href="../assets/icons/hourglass.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- مكتبة SweetAlert2 الزجاجية للتنبيهات -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="dashboard-wrapper single-page-wrapper">
+        <section class="glass-panel countdown-section page-panel">
+            <h2><i class="fa-solid fa-hourglass-half"></i> عداد المواعيد الدراسية</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">تابع المتبقي من الوقت لامتحاناتك وتسليم مشاريعك الجامعية لتنظيم أوقات دراستك.</p>
+            
+            <!-- حقول إضافة حدث دراسي جديد مجهزة ومقاومة للتداخل على الموبايل -->
+            <div class="board-input-group-wrapper countdown-form-group" style="display: flex; flex-direction: column; width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 15px; gap: 12px; box-sizing: border-box; margin-bottom: 30px;">
+    
+                <input type="text" id="event-title" placeholder="اسم المادة الدراسية (مثال: رياضيات متقطعة)..." autocomplete="off" maxlength="20" style="width: 100%; background: rgba(255,255,255,0.02) !important; border: 1px solid rgba(255,255,255,0.06) !important; border-radius: 8px; padding: 12px 16px; color: var(--text-main); font-size: 0.95rem; outline: none; box-sizing: border-box;">
+                
+                <input type="text" id="event-type" placeholder="نوع الموعد (مثال: امتحان عملي، تسليم مشروع)..." autocomplete="off" maxlength="20" style="width: 100%; background: rgba(255,255,255,0.02) !important; border: 1px solid rgba(255,255,255,0.06) !important; border-radius: 8px; padding: 12px 16px; color: var(--text-main); font-size: 0.95rem; outline: none; box-sizing: border-box;">
+
+                <div class="countdown-time-row" style="display: flex; gap: 10px; width: 100%; flex-wrap: wrap;">
+                    <input type="date" id="event-only-date" style="flex: 1; min-width: 140px; background: rgba(255,255,255,0.02) !important; border: 1px solid rgba(255,255,255,0.06) !important; border-radius: 8px; padding: 12px 16px; color: var(--text-main); font-size: 0.95rem; outline: none; box-sizing: border-box;">
+                    <input type="time" id="event-only-time" style="flex: 1; min-width: 110px; background: rgba(255,255,255,0.02) !important; border: 1px solid rgba(255,255,255,0.06) !important; border-radius: 8px; padding: 12px 16px; color: var(--text-main); font-size: 0.95rem; outline: none; box-sizing: border-box;">
+                </div>
+                
+                <button id="add-event-btn" class="glow-btnNotHover" style="width: 100%; padding: 12px; border-radius: 8px; height: 46px; font-weight: bold;">تثبيت العداد التنازلي</button>
+            </div>
+
+            <!-- شبكة كروت العدادات الحية التنازلية -->
+            <div class="events-grid" id="events-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; width: 100%; box-sizing: border-box;">
+                <!-- سيتم توليد العدادات هنا ديناميكياً -->
+            </div>
+        </section>
+
+        <div class="navigation-bar">
+            <a href="../index.html" class="glow-btn outline back-home-btn">
+                <i class="fa-solid fa-arrow-right"></i>  العودة للوحة الرئيسية
+            </a>
+        </div>
+    </div>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/countdown.js" defer></script>
+</body>
+</html>

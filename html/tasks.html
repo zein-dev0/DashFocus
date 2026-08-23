@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashFocus | مهام اليوم</title>
+    <link rel="shortcut icon" href="../assets/icons/hourglass.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="dashboard-wrapper single-page-wrapper">
+
+        <section class="glass-panel tasks-section page-panel">
+            <h2><i class="fa-solid fa-list-check"></i> قائمة مهام اليوم</h2>
+            
+            <!-- 🚀 حاوية الإدخال النظيفة بعد إزالة عناصر التسجيل الصوتي تماماً -->
+            <div class="add-task-container glass-panel-small tasks-form-group" style="display: flex; gap: 15px; align-items: center; padding: 15px; width: 100%; box-sizing: border-box; margin-bottom: 20px;">
+                <div class="task-inputs-wrapper" style="display: flex; flex-direction: column; gap: 8px; flex: 1; width: 100%;">
+                    <input type="text" id="task-input" placeholder="عنوان المهمة الرئيسي..." autocomplete="off" maxlength="30" style="width: 100%; box-sizing: border-box;">
+                    <input type="text" id="task-desc-input" placeholder="الوصف (اختياري)" autocomplete="off" maxlength="40" style="width: 100%; box-sizing: border-box;">
+                </div>
+                <button id="add-task-btn" class="glow-btnNotHover">إضافة</button>
+            </div>
+
+            <ul class="task-list" id="task-list">
+                <!-- المهام تتولد هنا عبر الجافا سكريبت -->
+            </ul>
+        </section>
+
+        <div class="navigation-bar">
+            <a href="../index.html" class="glow-btn outline back-home-btn">
+                <i class="fa-solid fa-arrow-right"></i> العودة للوحة الرئيسية
+            </a>
+        </div>
+    </div>
+
+    <script src="../js/storage.js" defer></script>
+    <script src="../js/tasks.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

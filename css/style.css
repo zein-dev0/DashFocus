@@ -1,0 +1,1372 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+/* =========================================
+   إعادة ضبط الإعدادات الافتراضية والخطوط
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tajawal", sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.background-blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+.blob-1 { top: -10%; left: 10%; width: 400px; height: 400px; background: var(--neon-purple); }
+.blob-2 { bottom: -10%; right: 10%; width: 300px; height: 300px; background: var(--neon-cyan); }
+
+/* الحاوية الهيكلية */
+.dashboard-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1;
+    padding: 40px 0;
+}
+
+.single-page-wrapper {
+    max-width: 800px; /* جعل الصفحات الفردية أكثر تمركزاً وأناقة */
+}
+
+/* الكلاس السحري للتأثير الزجاجي الموحد */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--glass-shadow);
+}
+
+.glow-text {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+    margin-bottom: 5px;
+}
+
+.text-center { text-align: center; }
+
+/* =========================================
+   شبكة الخدمات الرئيسية (مثل الصورة المرفقة)
+========================================= */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+}
+
+/* الأيقونات النيونية داخل البطاقات */
+.service-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.icon-cyan { color: var(--neon-cyan); filter: drop-shadow(0 0 8px var(--neon-cyan)); }
+.icon-purple { color: var(--neon-purple); filter: drop-shadow(0 0 8px var(--neon-purple)); }
+.icon-muted { color: var(--text-muted); }
+
+.service-card:hover .service-icon {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.05);
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* كروت قريباً */
+.coming-soon {
+    position: relative;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.coming-soon:hover { transform: none; border-color: var(--glass-border); box-shadow: var(--glass-shadow); }
+.badge-soon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    background: red;
+    border-radius: 20px;
+    color: white;
+}
+
+/* =========================================
+   شريط الملاحة والعودة
+========================================= */
+.navigation-bar {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+.back-home-btn {
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.page-panel h2 {
+    color: var(--neon-cyan);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* =========================================
+   تنسيقات الهيدر المطور الموحد
+========================================= */
+.header-flex { display: flex; align-items: center; justify-content: space-between; padding: 20px; width: 100%; }
+.header-date { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.header-content { flex: 2; text-align: center; }
+.header-buttons { flex: 1; display: flex; justify-content: flex-end; gap: 12px; }
+
+.theme-btn, .about-toggle-btn {
+    width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; cursor: pointer; padding: 0; transition: transform 0.2s ease;
+}
+.theme-btn:hover, .about-toggle-btn:hover { transform: scale(1.1); }
+.date-day { font-size: 1.1rem; font-weight: 700; color: var(--neon-cyan); text-shadow: 0 0 8px rgba(0, 240, 255, 0.4); }
+.date-full { font-size: 0.85rem; color: var(--text-muted); letter-spacing: 0.5px; }
+
+/* =========================================
+   تنسيقات مؤقت البومودورو والـ Slider
+========================================= */
+.timer-section { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.timer-display { position: relative; width: 200px; height: 200px; display: flex; justify-content: center; align-items: center; }
+.timer-ring-circle { stroke-dasharray: 565; stroke-dashoffset: 0; transition: stroke-dashoffset 1s linear; filter: drop-shadow(0 0 8px var(--neon-cyan)); }
+.time-text { position: absolute; font-size: 3.5rem; font-weight: bold; color: var(--text-main); text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); }
+.timer-controls { display: flex; gap: 10px; }
+.picker-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+.slider-value-display { font-size: 3rem; font-weight: bold; color: var(--neon-cyan); text-shadow: 0 0 15px rgba(0, 240, 255, 0.4); margin-bottom: 15px; }
+.slider-value-display small { font-size: 1.2rem; color: var(--text-main); }
+.range-slider-container { width: 100%; margin-bottom: 30px; padding: 0 10px; }
+.custom-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.1); outline: none; }
+.custom-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--neon-purple); border: 2px solid #fff; cursor: pointer; box-shadow: 0 0 10px var(--neon-purple); transition: transform 0.1s; }
+.custom-slider::-webkit-slider-thumb:hover { transform: scale(1.2); background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
+.slider-limits { display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.8rem; color: var(--text-muted); }
+.save-slider-btn { width: 100%; padding: 12px; }
+.picker-toggle-btn { font-size: 0.95rem; padding: 8px 16px; display: flex; align-items: center; gap: 8px; margin: 0 auto; }
+
+/* =========================================
+   أزرار الجلو والمودال والمهام والأيقونات الاحترافية
+========================================= */
+.glow-btn { background: var(--neon-purple); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(138, 43, 226, 0.4); }
+.glow-btn:hover { box-shadow: 0 0 20px var(--neon-purple), 0 0 40px var(--neon-purple); transform: translateY(-2px); }
+.glow-btn.outline { background: transparent; border: 1px solid var(--neon-purple); color: var(--text-main); }
+.glow-btn.outline:hover { background: rgba(138, 43, 226, 0.2); }
+
+
+
+/* =========================================
+   أزرار  بدون هوفر والمهام والأيقونات الاحترافية
+========================================= */
+.glow-btnNotHover.outlineNotHover { background: transparent; border: 1px solid var(--neon-purple); color: var(--text-main); }
+.glow-btnNotHover { background: var(--neon-purple); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(138, 43, 226, 0.4); }
+.theme-btnNotHover, .about-toggle-btnNotHover {
+    width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; cursor: pointer; padding: 0; transition: transform 0.2s ease;
+}
+
+
+
+
+
+.task-input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+#task-input { flex: 1; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 15px; border-radius: 8px; color: var(--text-main); font-size: 1rem; outline: none; transition: border-color 0.3s; }
+#task-input:focus { border-color: var(--neon-cyan); box-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+.task-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.glass-panel-small { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px 15px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; transition: transform 0.2s; }
+.glass-panel-small:hover { transform: translateX(-5px); background: rgba(255, 255, 255, 0.06); }
+.task-text { flex: 1; margin: 0 15px; font-size: 1.1rem; }
+.custom-checkbox input { accent-color: var(--neon-cyan); width: 18px; height: 18px; cursor: pointer; }
+
+/* تمييز الأيقونات الملونة للمهام الاحترافية */
+.task-actions { display: flex; gap: 4px; align-items: center; }
+.action-btn { background: transparent; border: none; font-size: 1rem; cursor: pointer; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: all 0.25s ease; }
+.delete-btn { color: rgba(255, 71, 87, 0.6); }
+.delete-btn:hover { color: #ff4757; background: rgba(255, 71, 87, 0.1); filter: drop-shadow(0 0 8px #ff4757); }
+.edit-btn { color: rgba(0, 240, 255, 0.6); }
+.edit-btn:hover { color: var(--neon-cyan); background: rgba(0, 240, 255, 0.1); filter: drop-shadow(0 0 8px var(--neon-cyan)); }
+.save-btn { color: rgba(46, 213, 115, 0.6); }
+.save-btn:hover { color: #2ed573; background: rgba(46, 213, 115, 0.1); filter: drop-shadow(0 0 8px #2ed573); }
+.cancel-btn { color: rgba(255, 165, 2, 0.6); }
+.cancel-btn:hover { color: #ffa502; background: rgba(255, 165, 2, 0.1); filter: drop-shadow(0 0 8px #ffa502); }
+.edit-task-input { flex: 1; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 12px; border-radius: 6px; color: var(--text-main); font-size: 1rem; outline: none; }
+
+/* التميز للأخضر المكتمل */
+.glass-panel-small.completed { background: linear-gradient(135deg, rgba(46, 213, 115, 0.15), rgba(46, 213, 115, 0.04)) !important; border-color: rgba(46, 213, 115, 0.25) !important; box-shadow: 0 0 15px rgba(46, 213, 115, 0.1); transform: none !important; }
+.glass-panel-small.completed .task-text { color: rgba(46, 213, 115, 0.6) !important; text-decoration: line-through; text-shadow: 0 0 8px rgba(46, 213, 115, 0.15); }
+.glass-panel-small.completed .custom-checkbox input { accent-color: #2ed573; }
+
+/* المودال الشاشات المنبثقة */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-content { max-width: 500px; width: 90%; position: relative; padding: 40px 30px; border: 1px solid rgba(255, 255, 255, 0.15); transform: scale(0.8); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.modal-overlay.active .modal-content { transform: scale(1); }
+.close-btn { position: absolute; top: 15px; right: 20px; background: transparent; border: none; color: var(--text-muted); font-size: 1.8rem; cursor: pointer; }
+.close-btn:hover { color: var(--neon-pink); }
+.profile-img-container { width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; padding: 3px; background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple)); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+.profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: var(--bg-dark); }
+.developer-title { color: var(--neon-cyan); font-size: 1rem; margin-bottom: 15px; font-weight: 500; }
+.developer-bio { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; }
+.social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.social-icon { text-decoration: none; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 10px; border-radius: 50%; font-size: 0.9rem; font-weight: bold; transition: all 0.3s ease; }
+.social-icon:hover { color: #0f172a; box-shadow: 0 0 15px var(--neon-cyan); transform: translateY(-3px); }
+.glow-text.small { font-size: 1.8rem; }
+
+body.light-theme .social-icon { background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.1); }
+body.light-theme .social-icon:hover { box-shadow: 0 0 15px var(--neon-cyan); }
+body.light-theme #task-input, body.light-theme .edit-task-input { background: rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.15); color: var(--text-main); }
+body.light-theme .glass-panel-small { background: rgba(15, 23, 42, 0.03); border: 1px solid rgba(15, 23, 42, 0.08); }
+
+
+/* =========================================
+   تنسيقات الأوضاع والإعدادات المحدثة للبومودورو
+========================================= */
+.timer-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.modes-switcher {
+    display: flex;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.mode-tab {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+}
+
+.mode-tab.active {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.02);
+}
+
+.settings-toggle-btn {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* تنسيقات مجموعات الإعدادات داخل المودال */
+.settings-sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 25px 0;
+    text-align: right;
+}
+
+.settings-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.settings-group-title {
+    color: var(--neon-cyan);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.range-slider-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.slider-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.slider-val {
+    color: var(--neon-purple);
+    font-weight: bold;
+}
+
+/* خيارات التشغيل التلقائي (Checkbox الاحترافي) */
+.toggle-control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.toggle-control-row:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.toggle-label {
+    font-size: 0.95rem;
+}
+
+.toggle-control-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--neon-cyan);
+    cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    .timer-top-bar {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .modes-switcher {
+        width: 100%;
+        justify-content: center;
+    }
+    .mode-tab {
+        flex: 1;
+        justify-content: center;
+    }
+    .settings-toggle-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   تخصيص نافذة التنبيه SweetAlert2 الزجاجية
+========================================= */
+.swal2-popup.custom-swal-glass {
+    background: rgba(15, 23, 42, 0.75) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    color: var(--text-main) !important;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.swal2-title {
+    color: var(--text-main) !important;
+    font-family: "Tajawal", sans-serif !important;
+    font-size: 1.3rem !important;
+}
+
+/* تلوين زر الإغلاق بلون النيون البنفسجي الخاص بك */
+.swal2-confirm.custom-swal-btn {
+    background-color: var(--neon-purple) !important;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.4) !important;
+    font-family: "Tajawal", sans-serif !important;
+    border-radius: 8px !important;
+    padding: 10px 24px !important;
+    cursor: pointer;
+}
+.swal2-confirm.custom-swal-btn:hover {
+    box-shadow: 0 0 20px var(--neon-purple) !important;
+}
+
+/* =========================================
+   توافق نافذة التنبيه SweetAlert2 مع الوضع الفاتح
+========================================= */
+
+/* تحويل الشاشة المنبثقة لمظهر زجاجي فاتح ونظيف */
+body.light-theme .swal2-popup.custom-swal-glass {
+    background: rgba(241, 245, 249, 0.8) !important; /* خلفية رمادية فاتحة زجاجية (Slate) */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important; /* حدود داكنة خفيفة جداً */
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1) !important; /* ظلال ناعمة تناسب الوضع الفاتح */
+}
+
+/* تحويل لون نص العنوان الرئيسي */
+body.light-theme .swal2-title {
+    color: #0f172a !important; /* لون نص داكن (Slate 900) */
+}
+
+/* تحويل لون نص الوصف الداخلي */
+body.light-theme .swal2-html-container {
+    color: #334155 !important; /* لون نص فرعي داكن (Slate 700) */
+}
+
+/* تحسين مظهر زر الإغلاق ليناسب الخلفية المضيئة */
+body.light-theme .swal2-confirm.custom-swal-btn {
+    background-color: var(--neon-purple) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2) !important;
+}
+body.light-theme .swal2-confirm.custom-swal-btn:hover {
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4) !important;
+}
+
+/* =========================================
+   تنسيقات حقول المهام المحدثة (عنوان + وصف)
+========================================= */
+.task-inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    width: 100%;
+}
+
+/* تنسيق حقل الوصف الفرعي في الإدخال */
+#task-desc-input {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 0.85rem; /* حجم أصغر */
+    outline: none;
+    transition: all 0.3s ease;
+}
+#task-desc-input:focus {
+    border-color: rgba(0, 240, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* تنسيق كتلة النصوص داخل بطاقة المهمة المعروضة */
+.task-content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    text-align: right;
+    margin-right: 10px; /* مسافة بعد التشيك بوكس */
+}
+
+.task-title-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    transition: color 0.3s;
+}
+
+.task-desc-text {
+    font-size: 0.82rem; /* أصغر من العنوان الرئيسي */
+    color: var(--text-muted); /* لون خافت */
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* خط الشطب عند اكتمال المهمة للعنوان والوصف */
+.completed .task-title-text,
+.completed .task-desc-text {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/* حقول التعديل أثناء الـ Edit Mode */
+.edit-task-inputs-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+.edit-task-desc-input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    outline: none;
+}
+
+/* تأثير توهج الميكروفون أثناء الاستماع */
+#voice-btn.listening {
+    color: #ff4757 !important; /* لون أحمر نيون للتسجيل */
+    filter: drop-shadow(0 0 8px #ff4757);
+    animation: pulseMic 1.5s infinite;
+}
+
+@keyframes pulseMic {
+    0% { transform: translateY(-50%) scale(1); opacity: 1; }
+    50% { transform: translateY(-50%) scale(1.2); opacity: 0.7; }
+    100% { transform: translateY(-50%) scale(1); opacity: 1; }
+}
+
+/* =========================================
+   تنسيقات لوحة الملاحظات والأوراق والدبابيس
+========================================= */
+.habits-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    width: 100%;
+    padding: 10px 5px;
+    box-sizing: border-box;
+}
+
+/* بطاقة ورقة الملاحظات المعلقة */
+.note-paper {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 25px 18px 18px 18px;
+    border-radius: 4px; /* زوايا حادة قليلاً لتبدو كورقة */
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 140px;
+    word-wrap: break-word;
+}
+
+/* تأثير خفيف عند تمرير الماوس فوق الورقة */
+.note-paper:hover {
+    transform: translateY(-5px) rotate(1deg);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* الدبوس المثبت فوق كل ورقة */
+.note-pin {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(25deg);
+    font-size: 1.2rem;
+    color: #ff4757; /* لون أحمر نيون كلاسيكي للدبابيس */
+    filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.4));
+    text-shadow: 0 0 8px rgba(255, 71, 87, 0.6);
+    z-index: 5;
+    transition: transform 0.3s ease;
+}
+.note-paper:hover .note-pin {
+    transform: translateX(-50%) rotate(15deg) scale(1.1);
+}
+
+/* نص الهدف داخل الورقة */
+.note-text {
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* شريط التحكم السفلي داخل الورقة */
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 10px;
+    width: 100%;
+}
+
+/* زر الحذف الناعم داخل الورقة */
+.note-delete-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+.note-delete-btn:hover {
+    color: #ff4757;
+}
+
+/* وسم تم الإنجاز لتلوين الأوراق المكتملة */
+.note-paper.done {
+    border-color: rgba(0, 240, 255, 0.2);
+    background: rgba(0, 84, 97, 0.15);
+}
+.note-paper.done .note-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+/* =========================================
+   تطوير لوحة المهام: إطار خشبي 3D وخلفية زجاجية واضحة
+========================================= */
+
+/* حاوية اللوح الزجاجي المحاط بإطار خشبي ثلاثي الأبعاد */
+.wooden-board-container {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding: 35px 25px;
+    border-radius: 16px;
+    
+    /* خلفية زجاجية شبه شفافة لضمان الوضوح التام في الإضاءة النهارية والليلية */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* صناعة الإطار الخشبي البارز 3D (Border يحاكي الخشب المصقول) */
+    border: 12px solid #2d1f10; /* لون خشب بني دافئ محدد */
+    
+    /* دمج الظلال الداخلية والخارجية لصنع تأثير العمق ثلاثي الأبعاد الفخم */
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.4), /* ظل اللوح بالكامل على الخلفية */
+        inset 0 4px 10px rgba(0, 0, 0, 0.8), /* ظل داخلي حاد يعطي عمقاً للأوراق بالداخل */
+        0 2px 0px #423019; /* حافة مضيئة أسفل الخشب لإبراز البعد الثالث */
+}
+
+/* إضافة طبقة حماية إضافية للتباين (Contrast) لكي تظهر الأوراق بوضوح في النهار */
+.wooden-board-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.2); /* تعتيم خفيف جداً للخلفية لبروز أوراق الملاحظات */
+    border-radius: 4px; /* متناسق مع الزوايا الداخلية */
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ضبط شبكة عرض الأوراق */
+.habits-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+    position: relative;
+}
+
+/* تعديل وضوح ورقة الملاحظات لتكون بارزة جداً في الوضعين (النهاري والليلي) */
+.note-paper {
+    background: rgba(255, 255, 255, 0.06) !important; /* زيادة كثافة الزجاج للأوراق */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important; /* حدود أوضح للنهار */
+    box-shadow: 2px 8px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* عند اكتمال الهدف طويل الأمد */
+.note-paper.done {
+    background: rgba(0, 183, 181, 0.1) !important; /* إضاءة نيون خافتة متناسقة مع ألوانك */
+    border-color: rgba(0, 240, 255, 0.3) !important;
+}
+
+/* =========================================
+   تنسيقات لوحة الروابط السريعة المضيئة
+========================================= */
+.shortcut-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 20px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-height: 110px;
+    position: relative;
+}
+
+.shortcut-card:hover {
+    transform: translateY(-5px);
+    background: rgba(138, 43, 226, 0.08); /* لمحة بنفسجية عند التمرير */
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+}
+
+.shortcut-link-anchor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+    width: 100%;
+    cursor: pointer;
+}
+
+.shortcut-card i.site-icon {
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+    filter: drop-shadow(0 0 5px var(--neon-cyan));
+}
+
+.shortcut-name-text {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.shortcut-delete-btn {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    cursor: pointer;
+    opacity: 0; /* مخفي افتراضياً ويظهر عند الحوم */
+    transition: all 0.2s ease;
+}
+
+.shortcut-card:hover .shortcut-delete-btn {
+    opacity: 1;
+}
+
+.shortcut-delete-btn:hover {
+    color: #ff4757;
+    filter: drop-shadow(0 0 5px #ff4757);
+}
+
+/* =========================================
+   توافق نافذة التنبيه SweetAlert2 مع الوضع الفاتح
+========================================= */
+
+/* تحويل الشاشة المنبثقة لمظهر زجاجي فاتح ونظيف */
+body.light-theme .swal2-popup.custom-swal-glass {
+    background: rgba(241, 245, 249, 0.8) !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* تحويل لون نص العنوان الرئيسي في الوضع الفاتح */
+body.light-theme .swal2-title {
+    color: #0f172a !important;
+}
+
+/* تحويل لون نص الوصف الداخلي في الوضع الفاتح */
+body.light-theme .swal2-html-container {
+    color: #334155 !important;
+}
+
+/* 🛠️ تعديل إشارة التعجب والدائرة باللون المطلوب للوضع الفاتح لضمان أعلى تباين */
+body.light-theme .swal2-icon.swal2-info {
+    border-color: #0284c7 !important; /* تلوين الدائرة */
+    color: #0284c7 !important;        /* تلوين إشارة التعجب الداخلية */
+}
+
+/* تحسين مظهر زر الإغلاق ليناسب الخلفية المضيئة */
+body.light-theme .swal2-confirm.custom-swal-btn {
+    background-color: var(--neon-purple) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2) !important;
+}
+body.light-theme .swal2-confirm.custom-swal-btn:hover {
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4) !important;
+}
+
+/* =========================================
+   تأثير توهج وإضاءة حقول الإدخال عند التركيز (Focus)
+========================================= */
+.board-input-group-wrapper input:focus {
+    /* تفعيل إطار نيون خفيف حول الحقل نفسه إذا كان له حدود */
+    border-color: var(--neon-cyan) !important;
+    
+    /* صناعة ظل متوهج ناعم يضيء في الوضعين تلقائياً */
+    box-shadow: 0 0 12px rgba(2, 132, 199, 0.25);
+    
+    /* تحسين سرعة استجابة الإضاءة بشكل ناعم */
+    transition: all 0.3s ease;
+}
+
+/* إضاءة إضافية لحاوية الإدخال الكبرى المدمجة لإعطاء مظهر متناسق */
+.board-input-group-wrapper:focus-within {
+    border-color: var(--neon-cyan) !important;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06) !important;
+    transition: all 0.3s ease;
+}
+
+/* ضبط التوهج عند تفعيل الوضع الفاتح ليتناسب مع درجة السيان الداكنة المحسنة */
+body.light-theme .board-input-group-wrapper:focus-within {
+    box-shadow: 0 0 15px rgba(2, 132, 199, 0.2) !important;
+    background: rgba(15, 23, 42, 0.04) !important;
+}
+
+/* =========================================
+   تنسيقات لوحة عداد المواعيد الدراسية
+========================================= */
+.event-countdown-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-countdown-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.25);
+}
+
+.countdown-display-blocks {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    direction: ltr; /* لعرض الأرقام والترتيب الإنجليزي الصحيح للعداد */
+}
+
+.countdown-unit-block {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 8px 4px;
+    text-align: center;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.countdown-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    display: block;
+}
+
+.countdown-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+/* نمط التوهج الخاص بالتنبيه المنتهي */
+.event-countdown-card.expired {
+    border-color: rgba(255, 71, 87, 0.3) !important;
+    background: rgba(255, 71, 87, 0.04) !important;
+}
+.event-countdown-card.expired .countdown-number {
+    color: #ff4757 !important;
+    text-shadow: 0 0 8px rgba(255, 71, 87, 0.3);
+}
+
+/* =========================================
+   تنسيقات شبكة الجدول الأسبوعي المطور
+========================================= */
+.planner-timetable th, 
+.planner-timetable td {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 8px;
+    height: 70px;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+.planner-timetable td.time-cell-slot {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+/* توهج سيان ناعم عند الوقوف على المربع */
+.planner-timetable td.time-cell-slot:hover {
+    background: rgba(0, 240, 255, 0.04) !important;
+    box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.15);
+}
+
+/* مظهر المادة المضافة داخل المربع */
+.slot-filled-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.8rem;
+    animation: fadeIn 0.3s ease;
+}
+.slot-subject {
+    color: var(--neon-cyan);
+    font-weight: bold;
+}
+.slot-room {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+}
+
+/* توافق مظهر الجدول مع الوضع الفاتح */
+body.light-theme .planner-timetable th {
+    background: rgba(15, 23, 42, 0.03);
+}
+body.light-theme .planner-timetable td {
+    border-color: rgba(15, 23, 42, 0.06);
+}
+body.light-theme .slot-subject {
+    color: #0284c7;
+}
+
+
+/* =========================================
+   تجميل شريط الإعدادات والقوائم المنسدلة للجدول
+========================================= */
+
+/* التنسيق الافتراضي المخصص للموبايل والشاشات الصغيرة عمودياً */
+.planner-config-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.planner-config-inputs div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* تجميل القوائم المنسدلة زجاجياً (Select Custom Styling) */
+select#config-start-hour,
+select#config-end-hour {
+    -webkit-appearance: none; /* إزالة سهم المتصفح الافتراضي الجاف */
+    -moz-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: left 15px center; /* وضع سهم أنيق جهة اليسار */
+    padding-left: 35px;
+    transition: all 0.2s ease;
+}
+
+select#config-start-hour:hover,
+select#config-end-hour:hover {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+
+/* التوافق التام مع الوضع الفاتح (النهاري) للقوائم */
+body.light-theme select#config-start-hour,
+body.light-theme select#config-end-hour {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    border-color: rgba(15, 23, 42, 0.1) !important;
+    color: #0f172a !important;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%230f172a' viewBox='0 0 16 16'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+}
+
+/* =========================================
+   إصلاح تباين النافذة المنبثقة للوضعين الدراسيين
+========================================= */
+
+/* التنسيق الافتراضي المظلم للأسماء والحقول داخل نافذة التعديل */
+.swal-custom-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.swal-custom-input {
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    color: var(--text-main) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    font-size: 0.9rem !important;
+}
+
+/* ☀️ دمج ذكاء التباين العالي عند تفعيل الوضع النهاري */
+body.light-theme .custom-swal-glass {
+    background: rgba(255, 255, 255, 0.95) !important; /* خلفية ناصعة ومريحة مع الزجاج */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light-theme .swal2-title,
+body.light-theme .swal2-title span {
+    color: #0f172a !important; /* عنوان داكن حاد */
+}
+
+body.light-theme .swal-custom-label {
+    color: #334155 !important; /* عناوين جانبية واضحة جداً */
+}
+
+body.light-theme .swal-custom-input {
+    background: #f8fafc !important; /* حقول إدخال بيضاء ناصعة التباين */
+    color: #0f172a !important;      /* خط داكن عند الكتابة */
+    border: 1px solid #cbd5e1 !important;
+}
+
+/* تفتيح نصوص التلميحات الافتراضية بالوضع الفاتح لتظهر بشكل منسق */
+body.light-theme .swal-custom-input::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* =========================================
+   تنسيقات لوحة أحاديث النبي ﷺ المباركة
+========================================= */
+
+/* كرت الحديث الزجاجي المنسق روحانياً */
+.hadith-card-panel {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hadith-card-panel:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-purple);
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.15);
+}
+
+.hadith-number-tag {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 0.75rem;
+    color: var(--neon-purple);
+    font-weight: 800;
+}
+
+.hadith-text-block {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    text-align: right;
+    word-break: break-word;
+    white-space: pre-line; /* الحفاظ على تباعد السطور للنصوص المنسقة */
+}
+
+/* توافق مظهر الأحاديث مع الوضع الفاتح لضمان تباين مريح للعين */
+body.light-theme .hadith-card-panel {
+    background: rgba(255, 255, 255, 0.6) !important;
+    border-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+body.light-theme .hadith-text-block {
+    color: #0f172a !important; /* لون نص داكن مريح للقراءة */
+}
+
+/* ضبط لون نص الحديث داخل النافذة المنبثقة التلقائية */
+.swal-hadith-body-text {
+    color: var(--text-main);
+}
+body.light-theme .swal-hadith-body-text {
+    color: #0f172a !important; /* لون داكن حاد جداً مريح للقراءة بالوضع الفاتح */
+}
+
+/* =========================================
+   تلوين وتوهج أيقونات التاريخ والوقت الافتراضية
+========================================= */
+
+/* استهداف أيقونة التقويم داخل حقول الـ date */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(78%) sepia(51%) saturate(2855%) hue-rotate(143deg) brightness(108%) contrast(105%) 
+            drop-shadow(0 0 4px var(--neon-cyan));
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* استهداف أيقونة الساعة داخل حقول الـ time */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(78%) sepia(51%) saturate(2855%) hue-rotate(143deg) brightness(108%) contrast(105%) 
+            drop-shadow(0 0 4px var(--neon-cyan));
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* تأثير تفاعلي خفيف عند تمرير الماوس فوق الأيقونة لتعطي شعوراً حياً */
+input[type="date"]::-webkit-calendar-picker-indicator:hover,
+input[type="time"]::-webkit-calendar-picker-indicator:hover {
+    transform: scale(1.15);
+    filter: invert(78%) sepia(51%) saturate(2855%) hue-rotate(143deg) brightness(120%) contrast(105%) 
+            drop-shadow(0 0 8px var(--neon-cyan));
+}
+
+/* =========================================
+   تكييف ألوان أيقونات التاريخ والوقت مع الوضع النهاري
+========================================= */
+
+/* استهداف أيقونة التقويم والساعة معاً في الوضع الفاتح */
+body.light-theme input[type="date"]::-webkit-calendar-picker-indicator,
+body.light-theme input[type="time"]::-webkit-calendar-picker-indicator {
+    /* فلتر مخصص ليعطي لون السيان الداكن المحسن والملائم للخلفية البيضاء */
+    filter: invert(36%) sepia(85%) saturate(1210%) hue-rotate(145deg) brightness(95%) contrast(101%) 
+            drop-shadow(0 0 2px #0284c7);
+}
+
+/* التأثير التفاعلي عند تمرير الماوس في الوضع الفاتح */
+body.light-theme input[type="date"]::-webkit-calendar-picker-indicator:hover,
+body.light-theme input[type="time"]::-webkit-calendar-picker-indicator:hover {
+    filter: invert(36%) sepia(85%) saturate(1500%) hue-rotate(145deg) brightness(85%) contrast(101%) 
+            drop-shadow(0 0 5px #0284c7);
+}
+
+/* تنسيق خلايا الجدول التفاعلية */
+.planner-timetable td {
+    padding: 0 !important; /* إلغاء البادينغ لكي يملأ الهوفر الحواف تماماً */
+    transition: all 0.25s ease-in-out;
+}
+
+/* تأثير الهوفر المتوهج الفخم كما في صورتك تماماً */
+.planner-timetable td:hover {
+    background: rgba(0, 240, 255, 0.04) !important; /* توهج السيان الناعم */
+    box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.15);
+}
+
+/* تنعيم وإضاءة إشارة الزائد عند الهوفر */
+.planner-timetable td:hover .slot-empty {
+    opacity: 0.6 !important; /* ترتفع الشفافية بنعومة عند تمرير الماوس */
+    color: var(--neon-cyan) !important;
+    transform: scale(1.1);
+}
+
+/* =========================================
+   🔧 تصحيح وتطهير أيقونة نجاح SweetAlert2
+========================================= */
+
+/* إعادة ضبط الدائرة الخضراء لمنع ظهور أي خطوط رمادية قاطعة */
+.swal2-icon.swal2-success {
+    border-color: #a5dc86 !important;
+    box-sizing: content-box !important;
+}
+
+/* تنظيف الخلفية والعناصر الزائفة المسببة للخط المائل */
+.swal2-icon.swal2-success [class^='swal2-success-line'] {
+    background-color: #a5dc86 !important;
+    z-index: 2 !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+    border: 4px solid rgba(165, 220, 134, .3) !important;
+    box-sizing: content-box !important;
+}
+
+/* صمام أمان لتدمير التداخل اللوني الرمادي المقطوع */
+.swal2-icon.swal2-success::before,
+.swal2-icon.swal2-success::after,
+.swal2-icon.swal2-success .swal2-success-fix {
+    background-color: transparent !important; /* جعل العناصر المسببة للقطع شفافة تماماً */
+    background: transparent !important;
+}
+
+/* إجبار علامة الصح على التمركز المثالي في السنتر */
+.swal2-icon .swal2-icon-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* إخفاء الأيقونة الافتراضية تماماً لتجنب ظهور أي خطوط مشوهة */
+.swal2-popup .swal2-icon.swal2-success {
+    display: none !important;
+}
+
+.theme-btnNotHover i,
+.about-toggle-btnNotHover i{
+    font-size: 1.15rem;
+    transition: .35s ease;
+}
+
+.light-theme .theme-btnNotHover i{
+    color: #ffb400;
+}
+
+body:not(.light-theme) .theme-btnNotHover i{
+    color: #f8f8f8;
+}
+
+/* =========================================
+   تأمين ظهور الأقسام الأخيرة على أجهزة الموبايل
+========================================= */
+@media (max-width: 767px) {
+    /* إضافة تباعد سفلي مريح داخل حاوية اللوحة لمنع اختفاء الجزء الأخير */
+    .planner-section.page-panel {
+        padding-bottom: 60px !important; 
+    }
+
+    /* حماية حاوية التمرير الخاصة بالجدول الدراسي */
+    #timetable-capture-area {
+        margin-bottom: 20px !important;
+    }
+}
+
+/* =========================================
+   تنسيق التجاوب لنموذج العداد التنازلي للمواعيد
+========================================= */
+@media (max-width: 767px) {
+    .countdown-form-group .countdown-time-row {
+        flex-direction: column !important; /* جعل حقل التاريخ والوقت تحت بعضهما */
+        gap: 12px !important;
+    }
+    
+    .countdown-form-group #event-only-date,
+    .countdown-form-group #event-only-time {
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    .countdown-form-group #add-event-btn {
+        height: 44px !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+/* =========================================
+   تحسينات التجاوب والـ Media Queries
+========================================= */
+@media (max-width: 768px) {
+    .header-flex { flex-direction: column; gap: 15px; text-align: center; }
+    .header-content { order: 1; }
+    .header-date { order: 2; align-items: center; justify-content: center; }
+    .header-buttons { order: 3; justify-content: center; }
+    .services-grid { grid-template-columns: 1fr; } /* تحويل شبكة الخدمات لعمود واحد في الموبايل */
+
+    
+}
+
+/* =========================================
+   تنسيق التجاوب لنموذج إضافة مهام اليوم
+========================================= */
+
+/* المظهر الافتراضي على الموبايل والشاشات الصغيرة (أقل من 768 بكسل) */
+@media (max-width: 767px) {
+    .tasks-form-group {
+        flex-direction: column !important; /* جعل الحقول والزر تحت بعضها عمودياً */
+        align-items: stretch !important;   /* جعل العناصر تمتد لتملأ العرض الكامل */
+        gap: 12px !important;
+    }
+
+    #add-task-btn {
+        width: 100% !important;            /* جعل زر الإضافة يأخذ سطر كامل أسفل الحقول */
+        height: 44px !important;           /* زيادة الطول لسهولة النقر باللمس */
+        text-align: center !important;
+    }
+}
+
+/* =========================================
+   تنسيق التجاوب لنموذج إضافة الروابط المحفوظة
+========================================= */
+
+/* استهداف شاشات الموبايل (أقل من 768 بكسل) */
+@media (max-width: 767px) {
+    .shortcuts-form-group .shortcuts-action-row {
+        flex-direction: column !important; /* تحويل السطر الأخير لعمود */
+        align-items: stretch !important;    /* تمدد العناصر لملء العرض */
+        gap: 12px !important;
+    }
+
+    .shortcuts-form-group #shortcut-category {
+        width: 100% !important;             /* حقل التصنيف يأخذ سطر كامل */
+        flex: none !important;
+    }
+
+    .shortcuts-form-group #add-shortcut-btn {
+        width: 100% !important;             /* زر إضافة ينزل لأسفل تماماً بعرض كامل */
+        flex: none !important;
+        height: 44px !important;            /* طول مريح للّمس */
+        text-align: center !important;
+    }
+}

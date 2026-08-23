@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashFocus | لوحة المهام طويلة الأمد</title>
+    <link rel="shortcut icon" href="../assets/icons/hourglass.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="dashboard-wrapper single-page-wrapper">
+        <section class="glass-panel habits-section page-panel">
+            <h2><i class="fa-solid fa-thumbtack" style="color: #ff4757; transform: rotate(30deg);"></i> لوحة أهدافك طويلة الأمد</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">ثبت اهدافك هنا :</p>
+            
+            <div class="board-input-group-wrapper" style="display: flex; flex-wrap: wrap; width: 100%; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 6px; gap: 10px; box-sizing: border-box; margin-bottom: 35px;">
+                <input type="text" id="habit-input" placeholder="اكتب هدفاً طويل الأمد..." autocomplete="off" maxlength="60" style="flex: 1; min-width: 250px; background: transparent !important; border: none !important; padding: 12px 16px; color: var(--text-main); font-size: 0.95rem; outline: none;">
+                <button id="add-habit-btn" class="glow-btnNotHover" style="flex: 1; min-width: 150px; white-space: nowrap; padding: 12px 24px; border-radius: 8px;">تثبيت على اللوح</button>
+            </div>
+
+            <div class="wooden-board-container">
+                <div class="habits-board" id="habits-board">
+                    </div>
+            </div>
+        </section>
+
+        <div class="navigation-bar">
+            <a href="../index.html" class="glow-btn outline back-home-btn">
+                <i class="fa-solid fa-arrow-right"></i> العودة للوحة الرئيسية
+            </a>
+        </div>
+    </div>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/board.js" defer></script>
+</body>
+</html>

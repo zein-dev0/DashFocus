@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashFocus</title>
+    <link rel="shortcut icon" href="./assets/icons/hourglass.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    
+    <!-- 🚀 إضافة مكتبة SweetAlert2 المفقودة هنا ليعمل كرت الحديث فوراً -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="dashboard-wrapper">
+        <header class="glass-panel header-flex">
+            <div class="header-date" id="header-date">
+                <span class="date-day" id="date-day">--</span>
+                <span class="date-full" id="date-full">--/--/----</span>
+            </div>
+
+            <div class="header-content text-center">
+                <h1 class="glow-text">DashFocus</h1>
+                <p>مساحة عملك وإنتاجيتك</p>
+            </div>
+
+            <div class="header-buttons">
+                <button id="theme-toggle"
+                        class="glow-btnNotHover outlineNotHover theme-btnNotHover"
+                        title="تغيير المظهر">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+
+                <button id="about-btn"
+                        class="glow-btnNotHover outlineNotHover about-toggle-btnNotHover"
+                        title="حول المطور">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="services-grid">
+            <a href="./html/pomodoro.html" class="glass-panel service-card text-center">
+                <div class="service-icon icon-cyan">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                <h3>مؤقت البومودورو</h3>
+                <p>إدارة فترات التركيز والاستراحات</p>
+            </a>
+
+            <a href="./html/tasks.html" class="glass-panel service-card text-center">
+                <div class="service-icon icon-purple">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <h3>مهام اليوم</h3>
+                <p>تنظيم وجدولة أهدافك اليومية ومتابعة إنجازها</p>
+            </a>
+
+            <a href="html/board.html" class="service-card glass-panel">
+                <div class="service-icon icon-cyan">
+                    <i class="fa-solid fa-thumbtack" style="transform: rotate(30deg);"></i>
+                </div>
+                <h3>الأهداف طويلة الأمد</h3>
+                <p>ثبت اهدافك طويلة الامد</p>
+            </a>
+
+            <a href="html/shortcuts.html" class="service-card glass-panel">
+                <div class="service-icon icon-purple">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h3>روابط محفوظة</h3>
+                <p>تجميعة لمواقعك وأدواتك الأكثر استخداماً</p>
+            </a>
+
+            <!-- بطاقة عداد الامتحانات والتكاليف -->
+            <a href="html/countdown.html" class="service-card glass-panel">
+                <div class="service-icon icon-cyan">
+                    <i class="fa-solid fa-hourglass-half" style="filter: drop-shadow(0 0 0px var(--neon-cyan));"></i>
+                </div>
+                <h3>مواعيد الامتحانات والمشاريع</h3>
+                <p>راقب الوقت المتبقي لتسليم التكاليف والاختبارات التنازلية بدقة</p>
+            </a>
+
+            <a href="html/weekly-planner.html" class="service-card glass-panel">
+                <div class="service-icon icon-purple">
+                    <i class="fa-solid fa-calendar-days" style="filter: drop-shadow(0 0 0px var(--neon-purple));"></i>
+                </div>
+                <h3>منظم الساعات الأسبوعي</h3>
+                <p>وزّع مهامك ومحاضراتك على مدار اليوم والساعة بجدول أسبوعي تفاعلي</p>
+            </a>
+
+            <!-- بطاقة حديث اليوم العشوائي ﷺ المباركة -->
+            <a href="#" id="hadith-trigger-card" class="service-card glass-panel">
+                <div class="service-icon icon-cyan">
+                    <i class="fa-solid fa-feather-pointed" style="filter: drop-shadow(0 0 0px var(--neon-cyan));"></i>
+                </div>
+                <h3>حديث اليوم</h3>
+                <p>اضغط هنا ليظهر لك حديث نبوي شريف يجدد روحك وينير يومك</p>
+            </a>
+            
+            <div class="glass-panel service-card text-center coming-soon">
+                <div class="service-icon icon-muted">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <h3>تحليل الإنتاجية</h3>
+                <p>تقارير ورسوم بيانية لمعدلات تركيزك اليومية</p>
+                <span class="badge-soon">قريباً</span>
+            </div>
+            
+        </main>
+    </div>
+
+    <div id="about-modal" class="modal-overlay">
+        <div class="glass-panel modal-content text-center animate-pop">
+            <button id="close-modal-btn" class="close-btn">&times;</button>
+            <div class="profile-img-container">
+                <img src="./assets/images/myProf.webp" alt="المطور زين" class="profile-img">
+            </div>
+            <h2 class="glow-text small">زين بربر</h2>
+            <p class="developer-title">Web Developer | مطور مواقع ويب</p>
+            <p class="developer-bio">
+أنا زين بربر، متخصص في بناء وتطوير تطبيقات المواقع الإلكترونية التي تجمع بين الأناقة الفائقة والأداء السلس وهي آمنة وقابلة للتطوير . كفريق برمجي محترف نركز بشدة على راحة العملاء والموثوقية ، متاحون للإستشارات الفنيّة والتعاون الطويل معكم .           </p>
+            <div class="social-links">
+                <a href="https://t.me/Dev_Zein" class="social-icon" title="تيليغرام" target="_blank"><i class="fa-brands fa-telegram" style="color: var(--neon-cyan);"></i></a>
+                <a href="https://wa.me/message/X2KJP5UPQ3ZHP1" target="_blank" class="social-icon" title="واتساب"><i class="fa-brands fa-whatsapp" style="color: var(--neon-cyan);"></i></a>
+                <a href="https://www.instagram.com/dev_zein0?igsh=MXgwdmRkaGZqcjRiaA==" class="social-icon" title="انستغرام" target="_blank"><i class="fa-brands fa-instagram" style="color: var(--neon-cyan);"></i></a>
+                <a href="https://www.facebook.com/share/1D2ac9G3EC/" target="_blank" class="social-icon" title="فيسبوك"><i class="fa-brands fa-facebook-f" style="color: var(--neon-cyan);"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js" defer></script>
+</body>
+</html>

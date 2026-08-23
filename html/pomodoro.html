@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashFocus | مؤقت البومودورو</title>
+    <link rel="shortcut icon" href="../assets/icons/hourglass.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="dashboard-wrapper single-page-wrapper">
+
+        <section class="glass-panel timer-section text-center page-panel">
+            <!-- شريط التحكم العلوي: زر الإعدادات وأزرار الأوضاع -->
+            <div class="timer-top-bar">
+                <div class="modes-switcher">
+                    <button id="mode-focus-btn" class="mode-tab active"><i class="fa-solid fa-brain"></i> تركيز</button>
+                    <button id="mode-break-btn" class="mode-tab"><i class="fa-solid fa-coffee"></i> راحة قصيرة</button>
+                </div>
+                <button id="open-settings-btn" class="glow-btn outline settings-toggle-btn" title="الإعدادات">
+                    <i class="fa-solid fa-sliders"></i> الإعدادات
+                </button>
+            </div>
+
+            <div class="timer-display" id="timer-display">
+                <svg class="timer-ring" width="200" height="200">
+                    <circle class="timer-ring-circle" stroke="var(--neon-cyan)" stroke-width="8" fill="transparent" r="90" cx="100" cy="100"/>
+                </svg>
+                <span class="time-text" id="time-text">25:00</span>
+            </div>
+            
+            <div class="timer-controls">
+                <button id="start-btn" class="glow-btnNotHover">ابدأ</button>
+                <button id="pause-btn" class="glow-btnNotHover outlineNotHover">إيقاف</button>
+                <button id="reset-btn" class="glow-btnNotHover outlineNotHover">إعادة</button>
+            </div>
+        </section>
+
+                <!-- شريط الملاحة العلوي -->
+        <div class="navigation-bar">
+            <a href="../index.html" class="glow-btn outline back-home-btn">
+                <i class="fa-solid fa-arrow-right"></i> العودة للوحة الرئيسية
+            </a>
+        </div>
+    </div>
+
+    <!-- نافذة الإعدادات المخصصة المنبثقة -->
+    <div id="settings-modal" class="modal-overlay">
+        <div class="glass-panel modal-content animate-pop">
+            <button id="close-settings-btn" class="close-btn">&times;</button>
+            <h2 class="glow-text small text-center"><i class="fa-solid fa-sliders"></i> إعدادات مخصصة</h2>
+            
+            <div class="settings-sections-container">
+                <!-- 1. تخصيص الفترات الزمنية -->
+                <div class="settings-group">
+                    <h4 class="settings-group-title"><i class="fa-solid fa-clock"></i> تخصيص الفترات الزمنية (بالدقائق)</h4>
+                    
+                    <!-- وقت التركيز -->
+                    <div class="range-slider-block">
+                        <div class="slider-label-row">
+                            <span>وقت التركيز:</span>
+                            <span class="slider-val"><span id="slider-focus-text">25</span> دقيقة</span>
+                        </div>
+                        <input type="range" id="slider-focus" min="1" max="120" value="25" class="custom-slider">
+                    </div>
+
+                    <!-- وقت الراحة القصيرة -->
+                    <div class="range-slider-block">
+                        <div class="slider-label-row">
+                            <span>راحة قصيرة:</span>
+                            <span class="slider-val"><span id="slider-break-text">5</span> دقائق</span>
+                        </div>
+                        <input type="range" id="slider-break" min="1" max="30" value="5" class="custom-slider">
+                    </div>
+                </div>
+
+                <!-- 2. خيارات التشغيل التلقائي -->
+                <div class="settings-group">
+                    <h4 class="settings-group-title"><i class="fa-solid fa-bolt"></i>خيارات التشغيل التلقائي (فقط للحاسوب) </h4>
+                    
+                    <label class="toggle-control-row">
+                        <span class="toggle-label">بدء الاستراحة تلقائياً</span>
+                        <input type="checkbox" id="auto-start-break">
+                    </label>
+
+                    <label class="toggle-control-row">
+                        <span class="toggle-label">بدء جلسة التركيز تلقائياً</span>
+                        <input type="checkbox" id="auto-start-focus">
+                    </label>
+                </div>
+            </div>
+            
+            <button id="save-settings-btn" class="glow-btn save-slider-btn">حفظ الإعدادات</button>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 لرسائل التنبيه الاحترافية -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/timer.js" defer></script>
+</body>
+</html>

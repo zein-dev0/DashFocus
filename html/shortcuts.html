@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashFocus | روابط المطور الذكية</title>
+    <link rel="shortcut icon" href="../assets/icons/hourglass.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- مـكـتـبـة SweetAlert2 الـزجـاجـيـة -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="dashboard-wrapper single-page-wrapper">
+        <section class="glass-panel shortcuts-section page-panel">
+            <h2><i class="fa-solid fa-laptop-code"></i> روابط محفوظة </h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">أضف منصاتك ومراجعك مصنفة للوصول السريع إليها بدون تشتت.</p>
+            
+            <!-- 🚀 حاوية المدخلات مضاف إليها الكلاس shortcuts-form-group للتحكم بالتجاوب المخصص -->
+            <div class="board-input-group-wrapper shortcuts-form-group" style="display: flex; flex-direction: column; width: 100%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 15px; gap: 12px; box-sizing: border-box; margin-bottom: 30px;">
+                
+                <input type="text" id="shortcut-name" placeholder="اسم الموقع (مثال: Youtube)..." autocomplete="off" maxlength="20" style="width: 100%; background: rgba(255,255,255,0.02) !important; border: 1px solid rgba(255,255,255,0.06) !important; border-radius: 8px; padding: 12px 16px; color: var(--text-main); font-size: 0.95rem; outline: none; box-sizing: border-box;">
+                
+                <input type="url" id="shortcut-url" placeholder="رابط الموقع (https://...)..." autocomplete="off" maxlength="200" style="width: 100%; background: rgba(255,255,255,0.02) !important; border: 1px solid rgba(255,255,255,0.06) !important; border-radius: 8px; padding: 12px 16px; color: var(--text-main); font-size: 0.95rem; outline: none; text-align: left; direction: ltr; box-sizing: border-box;">
+                
+                <!-- حاوية حقل التصنيف والزر -->
+                <div class="shortcuts-action-row" style="display: flex; gap: 10px; width: 100%; flex-wrap: wrap;">
+                    <input type="text" id="shortcut-category" placeholder="التصنيف (مثال: ترفيه)..." autocomplete="off" maxlength="20" style="flex: 2; min-width: 140px; background: rgba(255,255,255,0.02) !important; border: 1px solid rgba(255,255,255,0.06) !important; border-radius: 8px; padding: 12px 16px; color: var(--text-main); font-size: 0.95rem; outline: none; box-sizing: border-box;">
+                    <button id="add-shortcut-btn" class="glow-btnNotHover" style="flex: 1; min-width: 110px; white-space: nowrap; padding: 12px; border-radius: 8px; height: 46px;">إضافة</button>
+                </div>
+            </div>
+
+            <div class="filter-buttons-container" id="filter-buttons-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; width: 100%;"></div>
+
+            <div class="shortcuts-grid" id="shortcuts-grid"></div>
+        </section>
+
+        <div class="navigation-bar">
+            <a href="../index.html" class="glow-btn outline back-home-btn">
+                <i class="fa-solid fa-arrow-right"></i> العودة للوحة الرئيسية
+            </a>
+        </div>
+    </div>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/shortcuts.js" defer></script>
+</body>
+</html>
